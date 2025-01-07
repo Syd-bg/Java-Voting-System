@@ -10,7 +10,7 @@ public class App {
             System.out.print("Enter your name: ");
             String name = scanner.nextLine();
 
-            // Prompt for age with validation
+            // Prompt for age
             int age = 0;
             boolean validAge = false;
             while (!validAge) {
@@ -39,7 +39,7 @@ public class App {
                 barangay = scanner.nextLine();
             }
 
-            // Prompt for length of stay with validation
+            // Prompt for length of stay
             int lengthOfStay = 0;
             boolean validLengthOfStay = false;
             while (!validLengthOfStay) {
@@ -63,6 +63,7 @@ public class App {
             int candidate1 = 0;
             int candidate2 = 0;
             boolean validSelection = false;
+
             if (age >= 18) {
                 if (lengthOfStay >= 6) {
                     System.out.println("\nWelcome! " + name + ", You are allowed to vote in " + barangay + ".");
@@ -262,6 +263,7 @@ public class App {
         }
     }
 
+    // Method for viewing vote count
     public static boolean voted(String name, boolean voted, int candidate1, int candidate2) {
         Scanner scanner = new Scanner(System.in);
         try {
