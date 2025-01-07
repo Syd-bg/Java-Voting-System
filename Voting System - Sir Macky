@@ -10,12 +10,12 @@ public class App {
             System.out.print("Enter your name: ");
             String name = scanner.nextLine();
 
-            // Prompt for age
+            // Prompt for age with validation
             int age = 0;
             boolean validAge = false;
             while (!validAge) {
                 try {
-                    System.out.print("Enter your age: ");
+                    System.out.print("\nEnter your age: ");
                     age = scanner.nextInt();
                     if (age <= 0) {
                         System.out.println("Age cannot be negative or zero.");
@@ -39,7 +39,7 @@ public class App {
                 barangay = scanner.nextLine();
             }
 
-            // Prompt for length of stay
+            // Prompt for length of stay with validation
             int lengthOfStay = 0;
             boolean validLengthOfStay = false;
             while (!validLengthOfStay) {
@@ -63,7 +63,6 @@ public class App {
             int candidate1 = 0;
             int candidate2 = 0;
             boolean validSelection = false;
-
             if (age >= 18) {
                 if (lengthOfStay >= 6) {
                     System.out.println("\nWelcome! " + name + ", You are allowed to vote in " + barangay + ".");
@@ -263,7 +262,6 @@ public class App {
         }
     }
 
-    // Method for viewing vote count
     public static boolean voted(String name, boolean voted, int candidate1, int candidate2) {
         Scanner scanner = new Scanner(System.in);
         try {
@@ -285,6 +283,14 @@ public class App {
                     System.out.println("\nCurrent vote count:");
                     System.out.println("Candidate 1: " + candidate1 + " vote(s)");
                     System.out.println("Candidate 2: " + candidate2 + " vote(s)");
+                    // Add this after the voting logic
+                    double totalVotes = candidate1 + candidate2;
+                    double candidate1Percentage = (candidate1 / totalVotes) * 100;
+                    double candidate2Percentage = (candidate2 / totalVotes) * 100;
+
+                    System.out.println("\nVoting Percentage:");
+                    System.out.println("Candidate 1: " + candidate1Percentage + "%");
+                    System.out.println("Candidate 2: " + candidate2Percentage + "%");
                 }
 
                 else{
