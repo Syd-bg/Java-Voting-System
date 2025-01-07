@@ -137,7 +137,7 @@ public class App {
                     System.out.println("\nCurrent vote count:");
                     System.out.println("Candidate 1: " + candidate1 + " vote(s)");
                     System.out.println("Candidate 2: " + candidate2 + " vote(s)");
-                    // Add this after the voting logic
+                    // Display vote counts in percentage
                     double totalVotes = candidate1 + candidate2;
                     double candidate1Percentage = (candidate1 / totalVotes) * 100;
                     double candidate2Percentage = (candidate2 / totalVotes) * 100;
