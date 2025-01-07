@@ -10,7 +10,7 @@ public class App {
             System.out.print("Enter your name: ");
             String name = scanner.nextLine();
 
-            // Prompt for age with validation
+            // Prompt for age
             int age = 0;
             boolean validAge = false;
             while (!validAge) {
@@ -39,7 +39,7 @@ public class App {
                 barangay = scanner.nextLine();
             }
 
-            // Prompt for length of stay with validation
+            // Prompt for length of stay
             int lengthOfStay = 0;
             boolean validLengthOfStay = false;
             while (!validLengthOfStay) {
