@@ -113,7 +113,6 @@ public class App {
                 System.out.println("Sorry " + name + ", you must be above 18 years old to vote.");
             }
         } finally {
-            scanner.close();
         }
     }
 
