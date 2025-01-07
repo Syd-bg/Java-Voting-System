@@ -30,7 +30,7 @@ public class App {
                 }
             }
 
-            // Prompt for barangay with validation
+            // Prompt for barangay with validation if the barangay is listed using the method on line 163
             System.out.print("\nEnter your barangay: ");
             String barangay = scanner.nextLine();
             while (!isValidBarangay(barangay)) {
