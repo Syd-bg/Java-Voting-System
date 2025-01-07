@@ -1,0 +1,310 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            // Prompt for name
+            System.out.print("Enter your name: ");
+            String name = scanner.nextLine();
+
+            // Prompt for age with validation
+            int age = 0;
+            boolean validAge = false;
+            while (!validAge) {
+                try {
+                    System.out.print("Enter your age: ");
+                    age = scanner.nextInt();
+                    if (age <= 0) {
+                        System.out.println("Age cannot be negative or zero.");
+                        scanner.nextLine();
+                    } else {
+                        scanner.nextLine(); // Consume the newline character
+                        validAge = true;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a valid integer for age.");
+                    scanner.nextLine(); // Clear the invalid input
+                }
+            }
+
+            // Prompt for barangay with validation
+            System.out.print("\nEnter your barangay: ");
+            String barangay = scanner.nextLine();
+            while (!isValidBarangay(barangay)) {
+                System.out.println("Please enter a valid barangay.");
+                System.out.print("Enter your barangay: ");
+                barangay = scanner.nextLine();
+            }
+
+            // Prompt for length of stay with validation
+            int lengthOfStay = 0;
+            boolean validLengthOfStay = false;
+            while (!validLengthOfStay) {
+                try {
+                    System.out.print("\nEnter your length of stay in months: ");
+                    lengthOfStay = scanner.nextInt();
+                    if (lengthOfStay <= 0) {
+                        System.out.println("Length of stay cannot be negative.");
+                        scanner.nextLine();
+                    } else {
+                        validLengthOfStay = true;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a valid integer for length of stay.");
+                    scanner.nextLine(); // Clear the invalid input
+                }
+            }
+
+            // Voting logic
+            int userSelection;
+            int candidate1 = 0;
+            int candidate2 = 0;
+            boolean validSelection = false;
+            if (age >= 18) {
+                if (lengthOfStay >= 6) {
+                    System.out.println("\nWelcome! " + name + ", You are allowed to vote in " + barangay + ".");
+                    switch (barangay.toLowerCase()) {
+                        case "alijis":
+                            // Present the user with a list of candidates to vote for
+                            System.out.println("1. Candidate 1");
+                            System.out.println("2. Candidate 2");
+                            System.out.print("Please select a candidate to vote for: ");
+                            validSelection = false;
+                            // Checks if the selection is valid or not
+                            while (!validSelection) {
+                                try {
+                                    userSelection = scanner.nextInt();
+                                    if (userSelection == 1) {
+                                        candidate1++;
+                                        validSelection = true;
+                                        voted(name, validSelection, candidate1, candidate2);
+                                    } else if (userSelection == 2) {
+                                        candidate2++;
+                                        validSelection = true;
+                                        voted(name, validSelection, candidate1, candidate2);
+                                    } else {
+                                        System.out.println("Invalid choice. Please select either 1 or 2.");
+                                        System.out.print("Please select a candidate to vote for: ");
+                                        scanner.nextLine(); // Clear the invalid input
+                                    }
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Invalid input. Please enter a valid integer (1 or 2).");
+                                    System.out.print("Please select a candidate to vote for: ");
+                                    scanner.nextLine(); // Clear the invalid input
+                                }
+                            }
+                            break;
+                        case "bukid":
+                        // Present the user with a list of candidates to vote for
+                            System.out.println("1. Candidate 1");
+                            System.out.println("2. Candidate 2");
+                            System.out.print("Please select a candidate to vote for: ");
+                            validSelection = false;
+                            // Checks if the selection is valid or not
+                            while (!validSelection) {
+                                try {
+                                    userSelection = scanner.nextInt();
+                                    if (userSelection == 1) {
+                                        candidate1++;
+                                        validSelection = true;
+                                        voted(name, validSelection, candidate1, candidate2);
+                                    } else if (userSelection == 2) {
+                                        candidate2++;
+                                        validSelection = true;
+                                        voted(name, validSelection, candidate1, candidate2);
+                                    } else {
+                                        System.out.println("Invalid choice. Please select either 1 or 2.");
+                                        System.out.print("Please select a candidate to vote for: ");
+                                        scanner.nextLine(); // Clear the invalid input
+                                    }
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Invalid input. Please enter a valid integer (1 or 2).");
+                                    System.out.print("Please select a candidate to vote for: ");
+                                    scanner.nextLine(); // Clear the invalid input
+                                }
+                            }
+                            break;
+                        case "kilidalan":
+                            // Present the user with a list of candidates to vote for
+                            System.out.println("1. Candidate 1");
+                            System.out.println("2. Candidate 2");
+                            System.out.print("Please select a candidate to vote for: ");
+                            validSelection = false;
+                            // Checks if the selection is valid or not
+                            while (!validSelection) {
+                                try {
+                                    userSelection = scanner.nextInt();
+                                    if (userSelection == 1) {
+                                        candidate1++;
+                                        validSelection = true;
+                                        voted(name, validSelection, candidate1, candidate2);
+                                    } else if (userSelection == 2) {
+                                        candidate2++;
+                                        validSelection = true;
+                                        voted(name, validSelection, candidate1, candidate2);
+                                    } else {
+                                        System.out.println("Invalid choice. Please select either 1 or 2.");
+                                        System.out.print("Please select a candidate to vote for: ");
+                                        scanner.nextLine(); // Clear the invalid input
+                                    }
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Invalid input. Please enter a valid integer (1 or 2).");
+                                    System.out.print("Please select a candidate to vote for: ");
+                                    scanner.nextLine(); // Clear the invalid input
+                                }
+                            }
+                            break;
+                        case "bata":
+                            // Present the user with a list of candidates to vote for
+                            System.out.println("1. Candidate 1");
+                            System.out.println("2. Candidate 2");
+                            System.out.print("Please select a candidate to vote for: ");
+                            validSelection = false;
+                            // Checks if the selection is valid or not
+                            while (!validSelection) {
+                                try {
+                                    userSelection = scanner.nextInt();
+                                    if (userSelection == 1) {
+                                        candidate1++;
+                                        validSelection = true;
+                                        voted(name, validSelection, candidate1, candidate2);
+                                    } else if (userSelection == 2) {
+                                        candidate2++;
+                                        validSelection = true;
+                                        voted(name, validSelection, candidate1, candidate2);
+                                    } else {
+                                        System.out.println("Invalid choice. Please select either 1 or 2.");
+                                        System.out.print("Please select a candidate to vote for: ");
+                                        scanner.nextLine(); // Clear the invalid input
+                                    }
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Invalid input. Please enter a valid integer (1 or 2).");
+                                    System.out.print("Please select a candidate to vote for: ");
+                                    scanner.nextLine(); // Clear the invalid input
+                                }
+                            }
+                            break;
+                        case "taculing":
+                            // Present the user with a list of candidates to vote for
+                            System.out.println("1. Candidate 1");
+                            System.out.println("2. Candidate 2");
+                            System.out.print("Please select a candidate to vote for: ");
+                            validSelection = false;
+                            // Checks if the selection is valid or not
+                            while (!validSelection) {
+                                try {
+                                    userSelection = scanner.nextInt();
+                                    if (userSelection == 1) {
+                                        candidate1++;
+                                        validSelection = true;
+                                        voted(name, validSelection, candidate1, candidate2);
+                                    } else if (userSelection == 2) {
+                                        candidate2++;
+                                        validSelection = true;
+                                        voted(name, validSelection, candidate1, candidate2);
+                                    } else {
+                                        System.out.println("Invalid choice. Please select either 1 or 2.");
+                                        System.out.print("Please select a candidate to vote for: ");
+                                        scanner.nextLine(); // Clear the invalid input
+                                    }
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Invalid input. Please enter a valid integer (1 or 2).");
+                                    System.out.print("Please select a candidate to vote for: ");
+                                    scanner.nextLine(); // Clear the invalid input
+                                }
+                            }
+                            break;
+                        case "mandalagan":
+                            // Present the user with a list of candidates to vote for
+                            System.out.println("1. Candidate 1");
+                            System.out.println("2. Candidate 2");
+                            System.out.print("Please select a candidate to vote for: ");
+                            validSelection = false;
+                            // Checks if the selection is valid or not
+                            while (!validSelection) {
+                                try {
+                                    userSelection = scanner.nextInt();
+                                    if (userSelection == 1) {
+                                        candidate1++;
+                                        validSelection = true;
+                                        voted(name, validSelection, candidate1, candidate2);
+                                    } else if (userSelection == 2) {
+                                        candidate2++;
+                                        validSelection = true;
+                                        voted(name, validSelection, candidate1, candidate2);
+                                    } else {
+                                        System.out.println("Invalid choice. Please select either 1 or 2.");
+                                        System.out.print("Please select a candidate to vote for: ");
+                                        scanner.nextLine(); // Clear the invalid input
+                                    }
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Invalid input. Please enter a valid integer (1 or 2).");
+                                    System.out.print("Please select a candidate to vote for: ");
+                                    scanner.nextLine(); // Clear the invalid input
+                                }
+                            }
+                            break;
+                        default:
+                            System.out.println("Sorry " + name + ", Your barangay is not listed in the valid barangays list.");
+                            break;
+                    }
+                } else {
+                    System.out.println("Sorry " + name + ", you must stay at least 6 months to vote.");
+                }
+            } else {
+                System.out.println("Sorry " + name + ", you must be above 18 years old to vote.");
+            }
+        } finally {
+            scanner.close();
+        }
+    }
+
+    public static boolean voted(String name, boolean voted, int candidate1, int candidate2) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            if (voted) {
+                System.out.println("\nThank you for voting " + name + ". Your vote has been recorded.");
+                System.out.println("Do you want to see the current vote count?");
+                System.out.print("Please enter 'yes' or 'no': ");
+                String seevote = scanner.nextLine();
+
+                // Validate user input
+                while (! seevote.equalsIgnoreCase("yes") && !seevote.equalsIgnoreCase("no")) {
+                    System.out.println("Invalid input. Please enter 'yes' or 'no'.");
+                    System.out.print("Please enter 'yes' or 'no': ");
+                    seevote = scanner.nextLine();
+                }
+
+                // Display vote count if user selects 'yes'
+                if (seevote.equalsIgnoreCase("yes")) {
+                    System.out.println("\nCurrent vote count:");
+                    System.out.println("Candidate 1: " + candidate1 + " vote(s)");
+                    System.out.println("Candidate 2: " + candidate2 + " vote(s)");
+                }
+
+                else{
+                    System.out.println("Thank you for your time.");
+                }
+                return true;
+            }
+        } catch (Exception e) {
+            // Handle unexpected exceptions
+            System.out.println("An unexpected error occurred: " + e.getMessage());
+        }
+        return false;
+    }
+
+    // Method to check if the barangay is valid or not
+    public static boolean isValidBarangay(String barangay) {
+        String[] validBarangays = {"Alijis", "Bukid", "Kilidalan", "Bata", "Taculing", "Mandalagan"};
+        for (String valid : validBarangays) {
+            if (barangay.equalsIgnoreCase(valid)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
